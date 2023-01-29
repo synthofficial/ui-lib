@@ -14,8 +14,6 @@ function WindowTable:CreateWindow()
 	local allPages = Instance.new("Frame")
 	local pageCorner = Instance.new("UICorner")
 	local pagesFolder = Instance.new("Folder")
-	local newPage = Instance.new("ScrollingFrame")
-
 	local mainCorner = Instance.new("UICorner")
 	local SideBar = Instance.new("Frame")
 	local sideCorner = Instance.new("UICorner")
@@ -64,14 +62,6 @@ function WindowTable:CreateWindow()
 	pagesFolder.Name = "pagesFolder"
 	pagesFolder.Parent = allPages
 
-	newPage.Name = "newPage"
-	newPage.Parent = allPages
-	newPage.Active = true
-	newPage.BackgroundColor3 = Color3.fromRGB(46, 46, 46)
-	newPage.BorderSizePixel = 0
-	newPage.Position = UDim2.new(0, 0, 4.70950248e-08, 0)
-	newPage.Size = UDim2.new(0, 442, 0, 324)
-	newPage.ScrollBarThickness = 4
 
 
 
@@ -99,7 +89,8 @@ function WindowTable:CreateWindow()
 		local tabListing = Instance.new("UIListLayout")
 		local tabPadding = Instance.new("UIPadding")
 		local elementsListing = Instance.new("UIListLayout")
-		
+		local newPage = Instance.new("ScrollingFrame")
+
 
 		TabButton.Name = "TabButton"
 		TabButton.Parent = SideBar
@@ -146,6 +137,16 @@ function WindowTable:CreateWindow()
 		elementsListing.Parent = newPage
 		elementsListing.SortOrder = Enum.SortOrder.LayoutOrder
 		elementsListing.Padding = UDim.new(0, 5)
+		
+		newPage.Name = "newPage"
+		newPage.Parent = allPages
+		newPage.Active = true
+		newPage.BackgroundColor3 = Color3.fromRGB(46, 46, 46)
+		newPage.BorderSizePixel = 0
+		newPage.Position = UDim2.new(0, 0, 4.70950248e-08, 0)
+		newPage.Size = UDim2.new(0, 442, 0, 324)
+		newPage.ScrollBarThickness = 4
+
 		
 	end
 	
