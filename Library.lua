@@ -85,6 +85,7 @@ function WindowTable:CreateWindow()
 	tabPadding.Name = "tabPadding"
 	tabPadding.Parent = allTabs
 	tabPadding.PaddingLeft = UDim.new(0, 8)
+	tabPadding.PaddingBottom = UDim.new(0, 4)
 
 	sideCorner.CornerRadius = UDim.new(0, 4)
 	sideCorner.Name = "sideCorner"
