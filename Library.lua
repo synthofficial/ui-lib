@@ -101,7 +101,7 @@ function WindowTable:CreateWindow()
 	function TabHandler:CreateTab(tabname)
 		tabname = tabname or "New Tab"
 		
-		local TabButton = Instance.new("TextLabel")
+		local TabButton = Instance.new("TextButton")
 		local newPage = Instance.new("ScrollingFrame")
 		local elementsListing = Instance.new("UIListLayout")
 		
@@ -145,6 +145,7 @@ function WindowTable:CreateWindow()
 
 		elementsListing.Name = "elementsListing"
 		elementsListing.Parent = newPage
+		elementsListing.HorizontalAlignment = Enum.HorizontalAlignment.Center
 		elementsListing.SortOrder = Enum.SortOrder.LayoutOrder
 		elementsListing.Padding = UDim.new(0, 5)
 
