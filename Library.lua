@@ -112,7 +112,7 @@ function WindowTable:CreateWindow()
 		TabButton.Size = UDim2.new(0, 100, 0, 28)
 		TabButton.Font = Enum.Font.FredokaOne
 		TabButton.Text = tabname
-		TabButton.TextColor3 = Color3.fromRGB(78,78,78) --green 189, 255, 161
+		TabButton.TextColor3 = Color3.fromRGB(125,125,125) --green 189, 255, 161
 		TabButton.TextSize = 14.000
 
 		TabButton.MouseButton1Click:Connect(function()
