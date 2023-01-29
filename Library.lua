@@ -109,7 +109,7 @@ function WindowTable:CreateWindow()
 		TabButton.Parent = allTabs
 		TabButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 		TabButton.BackgroundTransparency = 1.000
-		TabButton.Size = UDim2.new(0, 99, 0, 25)
+		TabButton.Size = UDim2.new(0, 105, 0, 32)
 		TabButton.Font = Enum.Font.FredokaOne
 		TabButton.Text = tabname
 		TabButton.TextColor3 = Color3.fromRGB(125,125,125) --green 189, 255, 161
