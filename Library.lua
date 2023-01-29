@@ -103,6 +103,10 @@ function WindowTable:CreateWindow()
 		local TabButton = Instance.new("TextButton")
 		local newPage = Instance.new("ScrollingFrame")
 		local elementsListing = Instance.new("UIListLayout")
+		local tabPadding = Instance.new("UIPadding")
+
+		--Properties:
+
 
 		
 		TabButton.Name = "TabButton"
@@ -149,6 +153,11 @@ function WindowTable:CreateWindow()
 		elementsListing.HorizontalAlignment = Enum.HorizontalAlignment.Center
 		elementsListing.SortOrder = Enum.SortOrder.LayoutOrder
 		elementsListing.Padding = UDim.new(0, 2)
+		
+
+		tabPadding.Name = "tabPadding"
+		tabPadding.Parent = game.StarterGui.Main.MainFrame.SideBar
+		tabPadding.PaddingLeft = UDim.new(0, 8)
 		
 		
 	end
