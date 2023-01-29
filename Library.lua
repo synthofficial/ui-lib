@@ -24,7 +24,7 @@ function WindowTable:CreateWindow()
 	--Properties:
 
 	Main.Name = "Main"
-	Main.Parent = game.CoreGui
+	Main.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 	Main.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 	MainFrame.Name = "MainFrame"
@@ -91,7 +91,7 @@ function WindowTable:CreateWindow()
 
 	sideCorner.CornerRadius = UDim.new(0, 4)
 	sideCorner.Name = "sideCorner"
-	sideCorner.Parent = allTabs
+	sideCorner.Parent = SideBar
 
 	tabPadding.Name = "tabPadding"
 	tabPadding.Parent = allTabs
