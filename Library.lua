@@ -100,7 +100,7 @@ function WindowTable:CreateWindow()
 	function TabHandler:CreateTab(tabname)
 		tabname = tabname or "New Tab"
 		
-		local TabButton = Instance.new("TextLabel")
+		local TabButton = Instance.new("TextButton")
 		local newPage = Instance.new("ScrollingFrame")
 		local elementsListing = Instance.new("UIListLayout")
 
@@ -108,7 +108,7 @@ function WindowTable:CreateWindow()
 		TabButton.Name = "TabButton"
 		TabButton.Parent = allTabs
 		TabButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-		TabButton.BackgroundTransparency = 0.000
+		TabButton.BackgroundTransparency = 1.000
 		TabButton.Size = UDim2.new(0, 100, 0, 28)
 		TabButton.Font = Enum.Font.FredokaOne
 		TabButton.Text = tabname
