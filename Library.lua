@@ -140,7 +140,7 @@ function WindowTable:CreateWindow()
 
 		tabPadding.Name = "tabPadding"
 		tabPadding.Parent = SideBar
-		tabPadding.PaddingLeft = UDim.new(0, 8)
+		tabPadding.PaddingLeft = UDim.new(0, 12)
 		
 		elementsListing.Name = "elementsListing"
 		elementsListing.Parent = newPage
