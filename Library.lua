@@ -120,6 +120,14 @@ function WindowTable:CreateWindow()
 				v.Visible = false   -- then we make them invisible 
 			end 
 			newPage.Visible = true  -- We make current page visible but not others
+			
+			for i,v in next, allTabs:GetChildren() do   -- We get all the elements inside the frame
+				if v:IsA("TextButton") then -- We can't animate UIListLayout, so we check if its a TextButton
+					game.TweenService:Create(v, TweenInfo.new(0.2, Enum.EasingStyle.Linear, Enum.EasingDirection.In), {
+						TextColor3 = Color3.fromRGB(56,56,56) -- We animate other Tab Buttons and making the current one seem Checked
+					}):Play()
+				end
+			end
 
 		end)
 		
