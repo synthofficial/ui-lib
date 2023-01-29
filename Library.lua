@@ -132,6 +132,7 @@ function WindowTable:CreateWindow()
 
 		elementsListing.Name = "elementsListing"
 		elementsListing.Parent = newPage
+		elementsListing.HorizontalAlignment = Enum.HorizontalAlignment.Center
 		elementsListing.SortOrder = Enum.SortOrder.LayoutOrder
 		elementsListing.Padding = UDim.new(0, 5)
 		
