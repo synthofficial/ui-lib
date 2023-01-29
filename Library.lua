@@ -109,7 +109,7 @@ function WindowTable:CreateWindow()
 		TabButton.Parent = allTabs
 		TabButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 		TabButton.BackgroundTransparency = 1.000
-		TabButton.Size = UDim2.new(0, 100, 0, 28)
+		TabButton.Size = UDim2.new(0, 99, 0, 25)
 		TabButton.Font = Enum.Font.FredokaOne
 		TabButton.Text = tabname
 		TabButton.TextColor3 = Color3.fromRGB(125,125,125) --green 189, 255, 161
@@ -146,7 +146,7 @@ function WindowTable:CreateWindow()
 		elementsListing.Parent = newPage
 		elementsListing.HorizontalAlignment = Enum.HorizontalAlignment.Center
 		elementsListing.SortOrder = Enum.SortOrder.LayoutOrder
-		elementsListing.Padding = UDim.new(0, 7)
+		elementsListing.Padding = UDim.new(0, 5)
 		
 		
 	end
