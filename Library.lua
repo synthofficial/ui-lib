@@ -165,22 +165,25 @@ function WindowTable:CreateWindow()
 			callback = callback or print("Callback error.")
 			
 
-			local TextButton = Instance.new("TextButton")
+			local textButton = Instance.new("TextButton")
 			local buttonCorner = Instance.new("UICorner")
 
 			--Properties:
 
-			TextButton.Parent = game.StarterGui.Main.MainFrame.allPages.newPage
-			TextButton.BackgroundColor3 = Color3.fromRGB(189, 255, 161)
-			TextButton.Position = UDim2.new(0, 0, 9.56663868e-08, 0)
-			TextButton.Size = UDim2.new(0, 428, 0, 27)
-			TextButton.Font = Enum.Font.FredokaOne
-			TextButton.TextColor3 = Color3.fromRGB(56, 56, 56)
-			TextButton.TextSize = 14.000
+			textButton.Parent = newPage
+			textButton.BackgroundColor3 = Color3.fromRGB(189, 255, 161)
+			textButton.Position = UDim2.new(0, 0, 9.56663868e-08, 0)
+			textButton.Size = UDim2.new(0, 428, 0, 27)
+			textButton.Font = Enum.Font.FredokaOne
+			textButton.TextColor3 = Color3.fromRGB(56, 56, 56)
+			textButton.TextSize = 14.000
+			textButton.MouseButton1Click:Connect(function()
+				callback()
+			end)
 
 			buttonCorner.CornerRadius = UDim.new(0, 5)
 			buttonCorner.Name = "buttonCorner"
-			buttonCorner.Parent = TextButton
+			buttonCorner.Parent = textButton
 			
 		end
 		
