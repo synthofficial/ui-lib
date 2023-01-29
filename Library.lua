@@ -17,7 +17,6 @@ function WindowTable:CreateWindow()
 	local SideBar = Instance.new("Frame")
 	local allTabs = Instance.new("Frame")
 	local tabListing = Instance.new("UIListLayout")
-	local tabPadding = Instance.new("UIPadding")
 	local sideCorner = Instance.new("UICorner")
 
 	--Properties:
@@ -144,6 +143,13 @@ function WindowTable:CreateWindow()
 		elementsListing.HorizontalAlignment = Enum.HorizontalAlignment.Center
 		elementsListing.SortOrder = Enum.SortOrder.LayoutOrder
 		elementsListing.Padding = UDim.new(0, 5)
+		
+		local tabPadding = Instance.new("UIPadding")		
+
+		tabPadding.Name = "tabPadding"
+		tabPadding.Parent = allTabs
+		tabPadding.PaddingLeft = UDim.new(0, 8)
+		tabPadding.PaddingBottom = UDim.new(0, 4)
 
 	end
 	
