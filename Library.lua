@@ -1,12 +1,6 @@
 local WindowTable = {}
 
 function WindowTable:CreateWindow()
-	
-	-- Gui to Lua
-	-- Version: 3.2
-
-	-- Instances:
-
 	-- Gui to Lua
 	-- Version: 3.2
 
@@ -18,16 +12,17 @@ function WindowTable:CreateWindow()
 	local HubName = Instance.new("TextLabel")
 	local allPages = Instance.new("Frame")
 	local pageCorner = Instance.new("UICorner")
+	local pagesFolder = Instance.new("Folder")
 	local mainCorner = Instance.new("UICorner")
 	local SideBar = Instance.new("Frame")
 	local sideCorner = Instance.new("UICorner")
 	local allTabs = Instance.new("ScrollingFrame")
-
+	local tabListing = Instance.new("UIListLayout")
 
 	--Properties:
 
 	Main.Name = "Main"
-	Main.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+	Main.Parent = game.CoreGui
 	Main.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 	MainFrame.Name = "MainFrame"
@@ -64,6 +59,11 @@ function WindowTable:CreateWindow()
 	pageCorner.Name = "pageCorner"
 	pageCorner.Parent = allPages
 
+	pagesFolder.Name = "pagesFolder"
+	pagesFolder.Parent = allPages
+
+
+
 	mainCorner.CornerRadius = UDim.new(0, 4)
 	mainCorner.Name = "mainCorner"
 	mainCorner.Parent = MainFrame
@@ -86,58 +86,35 @@ function WindowTable:CreateWindow()
 	allTabs.BorderSizePixel = 0
 	allTabs.Size = UDim2.new(0, 118, 0, 324)
 	allTabs.ScrollBarThickness = 4
-	
-	local pagesFolder = Instance.new("Folder")
-	
 
-	pagesFolder.Name = "pagesFolder"
-	pagesFolder.Parent = allPages
-
+	tabListing.Name = "tabListing"
+	tabListing.Parent = allTabs
+	tabListing.HorizontalAlignment = Enum.HorizontalAlignment.Center
+	tabListing.SortOrder = Enum.SortOrder.LayoutOrder
+	tabListing.Padding = UDim.new(0, 5)
 	
 	local TabHandler = {}
 	
 	function TabHandler:CreateTab(tabname)
-		
 		tabname = tabname or "New Tab"
 		
 		local TabButton = Instance.new("TextLabel")
-		local tabPadding = Instance.new("UIPadding")
-		local tabListing = Instance.new("UIListLayout")
 		local newPage = Instance.new("ScrollingFrame")
 		local elementsListing = Instance.new("UIListLayout")
+
 		
 		TabButton.Name = "TabButton"
 		TabButton.Parent = allTabs
 		TabButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 		TabButton.BackgroundTransparency = 1.000
-		TabButton.Position = UDim2.new(0.0853324682, 0, 0, 0)
+		TabButton.Position = UDim2.new(0.0851947516, 0, 0.0309606474, 0)
 		TabButton.Size = UDim2.new(0, 100, 0, 28)
 		TabButton.Font = Enum.Font.FredokaOne
 		TabButton.Text = tabname
 		TabButton.TextColor3 = Color3.fromRGB(189, 255, 161)
 		TabButton.TextSize = 14.000
-
-		tabListing.Name = "tabListing"
-		tabListing.Parent = allTabs
-		tabListing.SortOrder = Enum.SortOrder.LayoutOrder
-		tabListing.Padding = UDim.new(0, 2)
-		
-		newPage.Name = "newPage"
-		newPage.Parent = allPages
-		newPage.Active = true
-		newPage.BackgroundColor3 = Color3.fromRGB(46, 46, 46)
-		newPage.BorderSizePixel = 0
-		newPage.Position = UDim2.new(0, 0, 4.70950248e-08, 0)
-		newPage.Size = UDim2.new(0, 442, 0, 324)
-		newPage.ScrollBarThickness = 4
-		
-		elementsListing.Name = "elementsListing"
-		elementsListing.Parent = newPage
-		elementsListing.SortOrder = Enum.SortOrder.LayoutOrder
-		elementsListing.Padding = UDim.new(0, 5)
-		
 		TabButton.MouseButton1Click:Connect(function()
-			for i,v in next, allPages:GetChildren() do -- We get all the pages that we added
+			for i,v in next, pagesFolder:GetChildren() do -- We get all the pages that we added
 				v.Visible = false   -- then we make them invisible 
 			end 
 			newPage.Visible = true  -- We make current page visible but not others
@@ -151,14 +128,28 @@ function WindowTable:CreateWindow()
 				end
 			end
 			game.TweenService:Create(TabButton, TweenInfo.new(0.2, Enum.EasingStyle.Linear, Enum.EasingDirection.In), {
-				BackgroundColor3 = Color3.fromRGB(189, 255, 161) -- We animate other Tab Buttons and making the current one seem Checked
+				BackgroundColor3 = Color3.fromRGB(255, 109, 83) -- We animate other Tab Buttons and making the current one seem Checked
 			}):Play()
 		end)
+		
+		newPage.Name = "newPage"
+		newPage.Parent = allPages
+		newPage.Active = true
+		newPage.BackgroundColor3 = Color3.fromRGB(46, 46, 46)
+		newPage.BorderSizePixel = 0
+		newPage.Position = UDim2.new(0, 0, 4.70950248e-08, 0)
+		newPage.Size = UDim2.new(0, 442, 0, 324)
+		newPage.ScrollBarThickness = 4
+
+		elementsListing.Name = "elementsListing"
+		elementsListing.Parent = newPage
+		elementsListing.SortOrder = Enum.SortOrder.LayoutOrder
+		elementsListing.Padding = UDim.new(0, 5)
+		
 		
 	end
 	
 	return TabHandler
-	
 end
 
 return WindowTable
