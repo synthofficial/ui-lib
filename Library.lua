@@ -95,7 +95,7 @@ function WindowTable:CreateWindow()
 	function TabHandler:CreateTab(tabname)
 		tabname = tabname or "New Tab"
 		
-		local TabButton = Instance.new("TextLabel")
+		local TabButton = Instance.new("TextButton")
 		local tabListing = Instance.new("UIListLayout")
 		local tabPadding = Instance.new("UIPadding")
 		local elementsListing = Instance.new("UIListLayout")
@@ -108,7 +108,7 @@ function WindowTable:CreateWindow()
 		TabButton.Position = UDim2.new(0.0851947516, 0, 0.0309606474, 0)
 		TabButton.Size = UDim2.new(0, 100, 0, 28)
 		TabButton.Font = Enum.Font.FredokaOne
-		TabButton.Text = "New Tab"
+		TabButton.Text = tabname
 		TabButton.TextColor3 = Color3.fromRGB(189, 255, 161)
 		TabButton.TextSize = 14.000
 
@@ -140,7 +140,7 @@ function WindowTable:CreateWindow()
 
 		tabPadding.Name = "tabPadding"
 		tabPadding.Parent = SideBar
-		tabPadding.PaddingLeft = UDim.new(0, 12)
+		tabPadding.PaddingLeft = UDim.new(0, 8)
 		
 		elementsListing.Name = "elementsListing"
 		elementsListing.Parent = newPage
