@@ -13,13 +13,12 @@ function WindowTable:CreateWindow()
 	local HubName = Instance.new("TextLabel")
 	local allPages = Instance.new("Frame")
 	local pageCorner = Instance.new("UICorner")
-	local pagesFolder = Instance.new("Folder")
 	local mainCorner = Instance.new("UICorner")
 	local SideBar = Instance.new("Frame")
 	local allTabs = Instance.new("Frame")
 	local tabListing = Instance.new("UIListLayout")
-	local sideCorner = Instance.new("UICorner")
 	local tabPadding = Instance.new("UIPadding")
+	local sideCorner = Instance.new("UICorner")
 
 	--Properties:
 
@@ -61,11 +60,6 @@ function WindowTable:CreateWindow()
 	pageCorner.Name = "pageCorner"
 	pageCorner.Parent = allPages
 
-	pagesFolder.Name = "pagesFolder"
-	pagesFolder.Parent = allPages
-
-
-
 	mainCorner.CornerRadius = UDim.new(0, 4)
 	mainCorner.Name = "mainCorner"
 	mainCorner.Parent = MainFrame
@@ -75,28 +69,32 @@ function WindowTable:CreateWindow()
 	SideBar.BackgroundColor3 = Color3.fromRGB(46, 46, 46)
 	SideBar.Position = UDim2.new(0.0172714088, 0, 0.107526883, 0)
 	SideBar.Size = UDim2.new(0, 118, 0, 324)
-	SideBar.BorderSizePixel = 0
 
 	allTabs.Name = "allTabs"
 	allTabs.Parent = SideBar
 	allTabs.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 	allTabs.BackgroundTransparency = 1.000
-	allTabs.BorderSizePixel = 0.000
+	allTabs.BorderSizePixel = 0
 	allTabs.Size = UDim2.new(0, 118, 0, 323)
-
 
 	tabListing.Name = "tabListing"
 	tabListing.Parent = allTabs
 	tabListing.SortOrder = Enum.SortOrder.LayoutOrder
 	tabListing.Padding = UDim.new(0, 2)
 
-	sideCorner.CornerRadius = UDim.new(0, 4)
-	sideCorner.Name = "sideCorner"
-	sideCorner.Parent = SideBar
-
 	tabPadding.Name = "tabPadding"
 	tabPadding.Parent = allTabs
 	tabPadding.PaddingLeft = UDim.new(0, 8)
+
+	sideCorner.CornerRadius = UDim.new(0, 4)
+	sideCorner.Name = "sideCorner"
+	sideCorner.Parent = SideBar
+	
+	local pagesFolder = Instance.new("Folder")
+
+
+	pagesFolder.Name = "pagesFolder"
+	pagesFolder.Parent = allPages
 	
 	local TabHandler = {}
 	
@@ -106,14 +104,15 @@ function WindowTable:CreateWindow()
 		local TabButton = Instance.new("TextLabel")
 		local newPage = Instance.new("ScrollingFrame")
 		local elementsListing = Instance.new("UIListLayout")
-
+		
 		TabButton.Name = "TabButton"
 		TabButton.Parent = allTabs
 		TabButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-		TabButton.BackgroundTransparency = 1.000 
+		TabButton.BackgroundTransparency = 1.000
+		TabButton.Position = UDim2.new(0.0851947516, 0, 0.0309606474, 0)
 		TabButton.Size = UDim2.new(0, 100, 0, 28)
 		TabButton.Font = Enum.Font.FredokaOne
-		TabButton.Text = tabname
+		TabButton.Text = "New Tab"
 		TabButton.TextColor3 = Color3.fromRGB(189, 255, 161)
 		TabButton.TextSize = 14.000
 		
@@ -149,7 +148,7 @@ function WindowTable:CreateWindow()
 		elementsListing.Parent = newPage
 		elementsListing.SortOrder = Enum.SortOrder.LayoutOrder
 		elementsListing.Padding = UDim.new(0, 5)
-		
+
 	end
 	
 	return TabHandler
