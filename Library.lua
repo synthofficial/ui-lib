@@ -107,7 +107,7 @@ function WindowTable:CreateWindow()
 		TabButton.Size = UDim2.new(0, 100, 0, 28)
 		TabButton.Font = Enum.Font.FredokaOne
 		TabButton.Text = tabname
-		TabButton.TextColor3 = Color3.fromRGB(125,125,125)
+		TabButton.TextColor3 = Color3.fromRGB(128,128,128)
 		TabButton.TextSize = 14.000
 		
 		TabButton.MouseButton1Click:Connect(function()
@@ -119,7 +119,7 @@ function WindowTable:CreateWindow()
 			for i,v in next, allTabs:GetChildren() do   -- We get all the elements inside the frame
 				if v:IsA("TextButton") then -- We can't animate UIListLayout, so we check if its a TextButton
 					game.TweenService:Create(v, TweenInfo.new(0.2, Enum.EasingStyle.Linear, Enum.EasingDirection.In), {
-						TextColor3 = Color3.fromRGB(125,125,125) -- We animate other Tab Buttons and making the current one seem Checked
+						TextColor3 = Color3.fromRGB(128,128,128) -- We animate other Tab Buttons and making the current one seem Checked
 					}):Play()
 				end
 			end
