@@ -18,7 +18,6 @@ function WindowTable:CreateWindow()
 	local HubName = Instance.new("TextLabel")
 	local allPages = Instance.new("Frame")
 	local pageCorner = Instance.new("UICorner")
-	local pagesFolder = Instance.new("Folder")
 	local mainCorner = Instance.new("UICorner")
 	local SideBar = Instance.new("Frame")
 	local sideCorner = Instance.new("UICorner")
@@ -65,9 +64,6 @@ function WindowTable:CreateWindow()
 	pageCorner.Name = "pageCorner"
 	pageCorner.Parent = allPages
 
-	pagesFolder.Name = "pagesFolder"
-	pagesFolder.Parent = allPages
-
 	mainCorner.CornerRadius = UDim.new(0, 4)
 	mainCorner.Name = "mainCorner"
 	mainCorner.Parent = MainFrame
@@ -91,6 +87,13 @@ function WindowTable:CreateWindow()
 	allTabs.Size = UDim2.new(0, 118, 0, 324)
 	allTabs.ScrollBarThickness = 4
 	
+	local pagesFolder = Instance.new("Folder")
+	
+
+	pagesFolder.Name = "pagesFolder"
+	pagesFolder.Parent = allPages
+
+	
 	local TabHandler = {}
 	
 	function TabHandler:CreateTab(tabname)
@@ -110,15 +113,9 @@ function WindowTable:CreateWindow()
 		TabButton.Position = UDim2.new(0.0853324682, 0, 0, 0)
 		TabButton.Size = UDim2.new(0, 100, 0, 28)
 		TabButton.Font = Enum.Font.FredokaOne
-		TabButton.Text = tabname or "New Tab"
+		TabButton.Text = tabname
 		TabButton.TextColor3 = Color3.fromRGB(189, 255, 161)
 		TabButton.TextSize = 14.000
-
-		tabPadding.Name = "tabPadding"
-		tabPadding.Parent = allTabs
-		tabPadding.PaddingBottom = UDim.new(0, 8)
-		tabPadding.PaddingLeft = UDim.new(0, 8)
-		tabPadding.PaddingTop = UDim.new(0, 8)
 
 		tabListing.Name = "tabListing"
 		tabListing.Parent = allTabs
