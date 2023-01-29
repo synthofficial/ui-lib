@@ -99,6 +99,7 @@ function WindowTable:CreateWindow()
 		local TabButton = Instance.new("TextButton")
 		local newPage = Instance.new("ScrollingFrame")
 		local elementsListing = Instance.new("UIListLayout")
+		local elementsPadding = Instance.new("UIPadding")
 		
 		TabButton.Name = "TabButton"
 		TabButton.Parent = allTabs
@@ -144,12 +145,46 @@ function WindowTable:CreateWindow()
 		elementsListing.SortOrder = Enum.SortOrder.LayoutOrder
 		elementsListing.Padding = UDim.new(0, 5)
 		
+		elementsPadding.Name = "elementsPadding"
+		elementsPadding.Parent = newPage
+		elementsPadding.PaddingLeft = UDim.new(0, 5)
+		elementsPadding.PaddingTop = UDim.new(0, 5)
+		elementsPadding.PaddingBottom = UDim.new(0, 5)
+		
 		local tabPadding = Instance.new("UIPadding")		
 
 		tabPadding.Name = "tabPadding"
 		tabPadding.Parent = allTabs
 		tabPadding.PaddingLeft = UDim.new(0, 8)
 		tabPadding.PaddingBottom = UDim.new(0, 4)
+		
+		local ElementHandler = {}
+		
+		function ElementHandler:CreateButton(buttonText, callback)
+			buttonText = buttonText or "Button"
+			callback = callback or print("Callback error.")
+			
+
+			local TextButton = Instance.new("TextButton")
+			local buttonCorner = Instance.new("UICorner")
+
+			--Properties:
+
+			TextButton.Parent = game.StarterGui.Main.MainFrame.allPages.newPage
+			TextButton.BackgroundColor3 = Color3.fromRGB(189, 255, 161)
+			TextButton.Position = UDim2.new(0, 0, 9.56663868e-08, 0)
+			TextButton.Size = UDim2.new(0, 428, 0, 27)
+			TextButton.Font = Enum.Font.FredokaOne
+			TextButton.TextColor3 = Color3.fromRGB(56, 56, 56)
+			TextButton.TextSize = 14.000
+
+			buttonCorner.CornerRadius = UDim.new(0, 5)
+			buttonCorner.Name = "buttonCorner"
+			buttonCorner.Parent = TextButton
+			
+		end
+		
+		return ElementHandler
 
 	end
 	
