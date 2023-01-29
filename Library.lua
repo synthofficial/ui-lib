@@ -112,7 +112,7 @@ function WindowTable:CreateWindow()
 		TabButton.Size = UDim2.new(0, 100, 0, 28)
 		TabButton.Font = Enum.Font.FredokaOne
 		TabButton.Text = tabname
-		TabButton.TextColor3 = Color3.fromRGB(189, 255, 161)
+		TabButton.TextColor3 = Color3.fromRGB(56,56,56) --green 189, 255, 161
 		TabButton.TextSize = 14.000
 
 		TabButton.MouseButton1Click:Connect(function()
@@ -128,6 +128,9 @@ function WindowTable:CreateWindow()
 					}):Play()
 				end
 			end
+			game.TweenService:Create(TabButton, TweenInfo.new(0.2, Enum.EasingStyle.Linear, Enum.EasingDirection.In), {
+				BackgroundColor3 = Color3.fromRGB(255, 109, 83) -- We animate other Tab Buttons and making the current one seem Checked
+			}):Play()
 
 		end)
 		
