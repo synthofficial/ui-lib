@@ -109,11 +109,13 @@ function WindowTable:CreateWindow()
 		TabButton.Parent = allTabs
 		TabButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 		TabButton.BackgroundTransparency = 1.000
-		TabButton.Size = UDim2.new(0, 105, 0, 32)
+		TabButton.Size = UDim2.new(0, 100, 0, 28)
 		TabButton.Font = Enum.Font.FredokaOne
 		TabButton.Text = tabname
 		TabButton.TextColor3 = Color3.fromRGB(125,125,125) --green 189, 255, 161
 		TabButton.TextSize = 14.000
+		TabButton.TextXAlignment = Enum.TextXAlignment.Center
+		TabButton.TextYAlignment = Enum.TextYAlignment.Center
 
 		TabButton.MouseButton1Click:Connect(function()
 			for i,v in next, pagesFolder:GetChildren() do -- We get all the pages that we added
