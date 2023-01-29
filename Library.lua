@@ -11,16 +11,15 @@ function WindowTable:CreateWindow()
 	local MainFrame = Instance.new("Frame")
 	local TopBar = Instance.new("Frame")
 	local HubName = Instance.new("TextLabel")
-	local ContentContainer = Instance.new("Frame")
-	local UICorner = Instance.new("UICorner")
+	local allPages = Instance.new("Frame")
+	local pageCorner = Instance.new("UICorner")
 	local Pages = Instance.new("Folder")
 	local mainCorner = Instance.new("UICorner")
-	local Navigation = Instance.new("Frame")
-	local UICorner_2 = Instance.new("UICorner")
-	local TabHolder = Instance.new("ScrollingFrame")
+	local SideBar = Instance.new("Frame")
+	local sideCorner = Instance.new("UICorner")
+	local allTabs = Instance.new("ScrollingFrame")
 	local UIPadding = Instance.new("UIPadding")
-	local UIListLayout_2 = Instance.new("UIListLayout")
-	local TabButton = Instance.new("TextLabel")
+	local UIListLayout = Instance.new("UIListLayout")
 
 	--Properties:
 
@@ -52,49 +51,54 @@ function WindowTable:CreateWindow()
 	HubName.TextColor3 = Color3.fromRGB(255, 255, 255)
 	HubName.TextSize = 14.000
 
-	ContentContainer.Name = "ContentContainer"
-	ContentContainer.Parent = MainFrame
-	ContentContainer.BackgroundColor3 = Color3.fromRGB(46, 46, 46)
-	ContentContainer.Position = UDim2.new(0.224528298, 0, 0.107526883, 0)
-	ContentContainer.Size = UDim2.new(0.759000003, 0, 0.870967805, 0)
+	allPages.Name = "allPages"
+	allPages.Parent = MainFrame
+	allPages.BackgroundColor3 = Color3.fromRGB(46, 46, 46)
+	allPages.Position = UDim2.new(0.224528298, 0, 0.107526883, 0)
+	allPages.Size = UDim2.new(0.759000003, 0, 0.870967805, 0)
 
-	UICorner.CornerRadius = UDim.new(0, 4)
-	UICorner.Parent = ContentContainer
+	pageCorner.CornerRadius = UDim.new(0, 4)
+	pageCorner.Name = "pageCorner"
+	pageCorner.Parent = allPages
 
 	Pages.Name = "Pages"
-	Pages.Parent = ContentContainer
+	Pages.Parent = allPages
+
+
+
 
 
 	mainCorner.CornerRadius = UDim.new(0, 4)
 	mainCorner.Name = "mainCorner"
 	mainCorner.Parent = MainFrame
 
-	Navigation.Name = "Navigation"
-	Navigation.Parent = MainFrame
-	Navigation.BackgroundColor3 = Color3.fromRGB(46, 46, 46)
-	Navigation.Position = UDim2.new(0.0172714088, 0, 0.107526883, 0)
-	Navigation.Size = UDim2.new(0, 118, 0, 324)
+	SideBar.Name = "SideBar"
+	SideBar.Parent = MainFrame
+	SideBar.BackgroundColor3 = Color3.fromRGB(46, 46, 46)
+	SideBar.Position = UDim2.new(0.0172714088, 0, 0.107526883, 0)
+	SideBar.Size = UDim2.new(0, 118, 0, 324)
 
-	UICorner_2.CornerRadius = UDim.new(0, 4)
-	UICorner_2.Parent = Navigation
+	sideCorner.CornerRadius = UDim.new(0, 4)
+	sideCorner.Name = "sideCorner"
+	sideCorner.Parent = SideBar
 
-	TabHolder.Name = "TabHolder"
-	TabHolder.Parent = Navigation
-	TabHolder.Active = true
-	TabHolder.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-	TabHolder.BackgroundTransparency = 1.000
-	TabHolder.BorderSizePixel = 0
-	TabHolder.Size = UDim2.new(0, 118, 0, 324)
-	TabHolder.ScrollBarThickness = 4
+	allTabs.Name = "allTabs"
+	allTabs.Parent = SideBar
+	allTabs.Active = true
+	allTabs.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	allTabs.BackgroundTransparency = 1.000
+	allTabs.BorderSizePixel = 0
+	allTabs.Size = UDim2.new(0, 118, 0, 324)
+	allTabs.ScrollBarThickness = 4
 
-	UIPadding.Parent = TabHolder
+	UIPadding.Parent = allTabs
 	UIPadding.PaddingBottom = UDim.new(0, 8)
 	UIPadding.PaddingLeft = UDim.new(0, 8)
 	UIPadding.PaddingTop = UDim.new(0, 8)
 
-	UIListLayout_2.Parent = TabHolder
-	UIListLayout_2.SortOrder = Enum.SortOrder.LayoutOrder
-	UIListLayout_2.Padding = UDim.new(0, 1)
+	UIListLayout.Parent = allTabs
+	UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+	UIListLayout.Padding = UDim.new(0, 1)
 
 
 	
@@ -103,12 +107,14 @@ function WindowTable:CreateWindow()
 	function TabHandler:CreateTab(tabname)
 		tabname = tabname or "New Tab"
 		
-		local TabButton = Instance.new("TextButton")
+		local TabButton = Instance.new("TextLabel")
 		local newPage = Instance.new("ScrollingFrame")
-		local UIListLayout = Instance.new("UIListLayout")
+		local elementsListing = Instance.new("UIListLayout")
+
+
 		
 		TabButton.Name = "TabButton"
-		TabButton.Parent = TabHolder
+		TabButton.Parent = allTabs
 		TabButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 		TabButton.BackgroundTransparency = 1.000
 		TabButton.Position = UDim2.new(0.0853324682, 0, 0, 0)
@@ -119,7 +125,7 @@ function WindowTable:CreateWindow()
 		TabButton.TextSize = 14.000
 		
 		newPage.Name = "newPage"
-		newPage.Parent = ContentContainer
+		newPage.Parent = allPages
 		newPage.Active = true
 		newPage.BackgroundColor3 = Color3.fromRGB(46, 46, 46)
 		newPage.BorderSizePixel = 0
@@ -127,17 +133,19 @@ function WindowTable:CreateWindow()
 		newPage.Size = UDim2.new(0, 442, 0, 324)
 		newPage.ScrollBarThickness = 4
 		
-		UIListLayout.Parent = newPage
-		UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
-		UIListLayout.Padding = UDim.new(0, 5)
+		elementsListing.Name = "elementsListing"
+		elementsListing.Parent = newPage
+		elementsListing.SortOrder = Enum.SortOrder.LayoutOrder
+		elementsListing.Padding = UDim.new(0, 5)
 		
 		TabButton.MouseButton1Click:Connect(function()
-			for i,v in next, Pages	:GetChildren() do -- We get all the pages that we added
+			for i,v in next, allPages:GetChildren() do -- We get all the pages that we added
 				v.Visible = false   -- then we make them invisible 
 			end 
 			newPage.Visible = true  -- We make current page visible but not others
 
-			for i,v in next, Pages:GetChildren() do   -- We get all the elements inside the frame
+			--Animations Below  -- Optional
+			for i,v in next, allTabs:GetChildren() do   -- We get all the elements inside the frame
 				if v:IsA("TextButton") then -- We can't animate UIListLayout, so we check if its a TextButton
 					game.TweenService:Create(v, TweenInfo.new(0.2, Enum.EasingStyle.Linear, Enum.EasingDirection.In), {
 						BackgroundColor3 = Color3.fromRGB(115, 49, 37) -- We animate other Tab Buttons and making the current one seem Checked
@@ -145,25 +153,9 @@ function WindowTable:CreateWindow()
 				end
 			end
 			game.TweenService:Create(TabButton, TweenInfo.new(0.2, Enum.EasingStyle.Linear, Enum.EasingDirection.In), {
-				TextColor3 = Color3.fromRGB(189, 255, 161) -- We animate other Tab Buttons and making the current one seem Checked
+				BackgroundColor3 = Color3.fromRGB(189, 255, 161) -- We animate other Tab Buttons and making the current one seem Checked
 			}):Play()
 		end)
-		
-		newPage.Name = "newPage"
-		newPage.Parent = Pages
-		newPage.Active = true
-		newPage.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-		newPage.BackgroundTransparency = 1.000
-		newPage.Size = UDim2.new(1, 0, 1, 0)
-		newPage.ScrollBarThickness = 5
-
-		UIListLayout.Name = "elementsListing"
-		UIListLayout.Parent = newPage
-		UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
-		UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
-		UIListLayout.Padding = UDim.new(0, 5)
-		
-		
 		
 	end
 	
