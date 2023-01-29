@@ -68,10 +68,6 @@ function WindowTable:CreateWindow()
 	pagesFolder.Name = "pagesFolder"
 	pagesFolder.Parent = allPages
 
-
-
-
-
 	mainCorner.CornerRadius = UDim.new(0, 4)
 	mainCorner.Name = "mainCorner"
 	mainCorner.Parent = MainFrame
@@ -114,7 +110,7 @@ function WindowTable:CreateWindow()
 		TabButton.Position = UDim2.new(0.0853324682, 0, 0, 0)
 		TabButton.Size = UDim2.new(0, 100, 0, 28)
 		TabButton.Font = Enum.Font.FredokaOne
-		TabButton.Text = "Button"
+		TabButton.Text = tabname or "New Tab"
 		TabButton.TextColor3 = Color3.fromRGB(189, 255, 161)
 		TabButton.TextSize = 14.000
 
