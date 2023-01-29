@@ -89,7 +89,6 @@ function WindowTable:CreateWindow()
 
 	tabListing.Name = "tabListing"
 	tabListing.Parent = allTabs
-	tabListing.HorizontalAlignment = Enum.HorizontalAlignment.Center
 	tabListing.SortOrder = Enum.SortOrder.LayoutOrder
 	tabListing.Padding = UDim.new(0, 5)
 	
