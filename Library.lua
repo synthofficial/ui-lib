@@ -82,11 +82,6 @@ function WindowTable:CreateWindow()
 	tabListing.SortOrder = Enum.SortOrder.LayoutOrder
 	tabListing.Padding = UDim.new(0, 2)
 
-	tabPadding.Name = "tabPadding"
-	tabPadding.Parent = allTabs
-	tabPadding.PaddingLeft = UDim.new(0, 8)
-	tabPadding.PaddingBottom = UDim.new(0, 4)
-
 	sideCorner.CornerRadius = UDim.new(0, 4)
 	sideCorner.Name = "sideCorner"
 	sideCorner.Parent = SideBar
