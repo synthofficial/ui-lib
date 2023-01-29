@@ -75,6 +75,7 @@ function WindowTable:CreateWindow()
 	SideBar.BackgroundColor3 = Color3.fromRGB(46, 46, 46)
 	SideBar.Position = UDim2.new(0.0172714088, 0, 0.107526883, 0)
 	SideBar.Size = UDim2.new(0, 118, 0, 324)
+	SideBar.BorderSizePixel = 0
 
 	allTabs.Name = "allTabs"
 	allTabs.Parent = SideBar
