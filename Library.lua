@@ -7,24 +7,28 @@ function WindowTable:CreateWindow()
 
 	-- Instances:
 
+	-- Gui to Lua
+	-- Version: 3.2
+
+	-- Instances:
+
 	local Main = Instance.new("ScreenGui")
 	local MainFrame = Instance.new("Frame")
 	local TopBar = Instance.new("Frame")
 	local HubName = Instance.new("TextLabel")
 	local allPages = Instance.new("Frame")
 	local pageCorner = Instance.new("UICorner")
-	local Pages = Instance.new("Folder")
+	local pagesFolder = Instance.new("Folder")
 	local mainCorner = Instance.new("UICorner")
 	local SideBar = Instance.new("Frame")
 	local sideCorner = Instance.new("UICorner")
 	local allTabs = Instance.new("ScrollingFrame")
-	local UIPadding = Instance.new("UIPadding")
-	local UIListLayout = Instance.new("UIListLayout")
+
 
 	--Properties:
 
 	Main.Name = "Main"
-	Main.Parent = game.CoreGui
+	Main.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 	Main.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 	MainFrame.Name = "MainFrame"
@@ -61,8 +65,8 @@ function WindowTable:CreateWindow()
 	pageCorner.Name = "pageCorner"
 	pageCorner.Parent = allPages
 
-	Pages.Name = "Pages"
-	Pages.Parent = allPages
+	pagesFolder.Name = "pagesFolder"
+	pagesFolder.Parent = allPages
 
 
 
@@ -90,28 +94,18 @@ function WindowTable:CreateWindow()
 	allTabs.BorderSizePixel = 0
 	allTabs.Size = UDim2.new(0, 118, 0, 324)
 	allTabs.ScrollBarThickness = 4
-
-	UIPadding.Parent = allTabs
-	UIPadding.PaddingBottom = UDim.new(0, 8)
-	UIPadding.PaddingLeft = UDim.new(0, 8)
-	UIPadding.PaddingTop = UDim.new(0, 8)
-
-	UIListLayout.Parent = allTabs
-	UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
-	UIListLayout.Padding = UDim.new(0, 1)
-
-
 	
 	local TabHandler = {}
 	
 	function TabHandler:CreateTab(tabname)
+		
 		tabname = tabname or "New Tab"
 		
 		local TabButton = Instance.new("TextLabel")
+		local tabPadding = Instance.new("UIPadding")
+		local tabListing = Instance.new("UIListLayout")
 		local newPage = Instance.new("ScrollingFrame")
 		local elementsListing = Instance.new("UIListLayout")
-
-
 		
 		TabButton.Name = "TabButton"
 		TabButton.Parent = allTabs
@@ -120,9 +114,20 @@ function WindowTable:CreateWindow()
 		TabButton.Position = UDim2.new(0.0853324682, 0, 0, 0)
 		TabButton.Size = UDim2.new(0, 100, 0, 28)
 		TabButton.Font = Enum.Font.FredokaOne
-		TabButton.Text = tabname or "New Tab"
+		TabButton.Text = "Button"
 		TabButton.TextColor3 = Color3.fromRGB(189, 255, 161)
 		TabButton.TextSize = 14.000
+
+		tabPadding.Name = "tabPadding"
+		tabPadding.Parent = allTabs
+		tabPadding.PaddingBottom = UDim.new(0, 8)
+		tabPadding.PaddingLeft = UDim.new(0, 8)
+		tabPadding.PaddingTop = UDim.new(0, 8)
+
+		tabListing.Name = "tabListing"
+		tabListing.Parent = allTabs
+		tabListing.SortOrder = Enum.SortOrder.LayoutOrder
+		tabListing.Padding = UDim.new(0, 1)
 		
 		newPage.Name = "newPage"
 		newPage.Parent = allPages
