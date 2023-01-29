@@ -114,7 +114,7 @@ function WindowTable:CreateWindow()
 		TabButton.Text = tabname
 		TabButton.TextColor3 = Color3.fromRGB(189, 255, 161)
 		TabButton.TextSize = 14.000
-		TabButton.AutoButtonColor = false
+
 		TabButton.MouseButton1Click:Connect(function()
 			for i,v in next, pagesFolder:GetChildren() do -- We get all the pages that we added
 				v.Visible = false   -- then we make them invisible 
