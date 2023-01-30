@@ -163,7 +163,7 @@ function WindowTable:CreateWindow()
 		
 		function ElementHandler:CreateButton(buttonText, callback)
 			buttonText = buttonText or "Button"
-			callback = callback or print("Callback error.")
+			callback = callback or function() end
 			
 
 			local textButton = Instance.new("TextButton")
