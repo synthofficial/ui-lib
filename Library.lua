@@ -211,7 +211,7 @@ function WindowTable:CreateWindow()
 			SectionDivider.BackgroundColor3 = Color3.fromRGB(88, 88, 88)
 			SectionDivider.Position = UDim2.new(0, 0, 0.8359375, 0)
 			SectionDivider.BorderSizePixel = 0
-			SectionDivider.Size = UDim2.new(0.99999994, 0, 0.0781266987, 0)
+			SectionDivider.Size = UDim2.new(0.99999994, 0, 0.04, 0)
 			
 		end
 		
