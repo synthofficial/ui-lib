@@ -138,6 +138,7 @@ function WindowTable:CreateWindow()
 		newPage.Position = UDim2.new(0, 0, 4.70950248e-08, 0)
 		newPage.Size = UDim2.new(0, 442, 0, 324)
 		newPage.ScrollBarThickness = 4
+		newPage.ZIndex = 99
 
 		elementsListing.Name = "elementsListing"
 		elementsListing.Parent = newPage
@@ -174,9 +175,11 @@ function WindowTable:CreateWindow()
 			textButton.BackgroundColor3 = Color3.fromRGB(189, 255, 161)
 			textButton.Position = UDim2.new(0, 0, 9.56663868e-08, 0)
 			textButton.Size = UDim2.new(0, 428, 0, 27)
+			textButton.AutoButtonColor = false
 			textButton.Font = Enum.Font.FredokaOne
 			textButton.TextColor3 = Color3.fromRGB(56, 56, 56)
 			textButton.TextSize = 14.000
+			textButton.ZIndex = 1
 			textButton.MouseButton1Click:Connect(function()
 				callback()
 			end)
