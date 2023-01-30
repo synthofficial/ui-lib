@@ -177,6 +177,7 @@ function WindowTable:CreateWindow()
 			textButton.Size = UDim2.new(0, 428, 0, 27)
 			textButton.AutoButtonColor = false
 			textButton.Font = Enum.Font.FredokaOne
+			textButton.Text = buttonText
 			textButton.TextColor3 = Color3.fromRGB(56, 56, 56)
 			textButton.TextSize = 14.000
 			textButton.ZIndex = 1
