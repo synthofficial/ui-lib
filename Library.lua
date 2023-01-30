@@ -275,7 +275,7 @@ function WindowTable:CreateWindow()
 
 			RadioButton.Name = "RadioButton"
 			RadioButton.Parent = Toggle
-			RadioButton.BackgroundColor3 = Color3.fromRGB(186, 81, 83)
+			RadioButton.BackgroundColor3 = Color3.fromRGB(56,56,56)
 			RadioButton.BorderColor3 = Color3.fromRGB(189, 255, 16)
 			RadioButton.Position = UDim2.new(0.927724838, 0, 0.222222224, 0)
 			RadioButton.Size = UDim2.new(0, 21, 0, 15)
@@ -290,12 +290,12 @@ function WindowTable:CreateWindow()
 				tog = not tog
 				callback(tog) -- Callbacks whenever we toggle
 				if tog then 
-					game.TweenService:Create(Toggle, TweenInfo.new(0.15, Enum.EasingStyle.Linear, Enum.EasingDirection.In), {
+					game.TweenService:Create(RadioButton, TweenInfo.new(0.15, Enum.EasingStyle.Linear, Enum.EasingDirection.In), {
 						BackgroundColor3 = Color3.fromRGB(186, 81, 83)
 					}):Play()
 					--- We put our animation here when the toggle is on
 				else
-					game.TweenService:Create(Toggle, TweenInfo.new(0.15, Enum.EasingStyle.Linear, Enum.EasingDirection.In), {
+					game.TweenService:Create(RadioButton, TweenInfo.new(0.15, Enum.EasingStyle.Linear, Enum.EasingDirection.In), {
 						BackgroundColor3 = Color3.fromRGB(56,56,56)
 					}):Play()
 					---We Put our animation here when the toggle is off
