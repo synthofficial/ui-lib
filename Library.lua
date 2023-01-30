@@ -131,7 +131,7 @@ function WindowTable:CreateWindow()
 		end)		
 		
 		newPage.Name = "newPage"
-		newPage.Parent = allPages
+		newPage.Parent = pagesFolder
 		newPage.Active = true
 		newPage.BackgroundColor3 = Color3.fromRGB(46, 46, 46)
 		newPage.BorderSizePixel = 0
