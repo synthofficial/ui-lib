@@ -148,9 +148,10 @@ function WindowTable:CreateWindow()
 		
 		elementsPadding.Name = "elementsPadding"
 		elementsPadding.Parent = newPage
-		elementsPadding.PaddingLeft = UDim.new(0, 4)
+		elementsPadding.PaddingLeft = UDim.new(0, 5)
 		elementsPadding.PaddingTop = UDim.new(0, 5)
 		elementsPadding.PaddingBottom = UDim.new(0, 5)
+		elementsPadding.PaddingRight = UDim.new(0,5)
 		
 		local tabPadding = Instance.new("UIPadding")		
 
