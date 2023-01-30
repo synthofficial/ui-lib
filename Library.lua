@@ -199,7 +199,6 @@ function WindowTable:CreateWindow()
 			Section.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 			Section.BackgroundTransparency = 1.000
 			Section.BorderSizePixel = 0
-			Section.Position = UDim2.new(0, 0, 9.71897407e-08, 0)
 			Section.Size = UDim2.new(0, 428, 0, 36)
 			Section.Font = Enum.Font.FredokaOne
 			Section.Text = sectionText
