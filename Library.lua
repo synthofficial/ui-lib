@@ -30,6 +30,8 @@ function WindowTable:CreateWindow()
 		end
 	end
 	
+	
+	
 	local MainFrame = Instance.new("Frame")
 	local TopBar = Instance.new("Frame")
 	local HubName = Instance.new("TextLabel")
@@ -52,6 +54,7 @@ function WindowTable:CreateWindow()
 	MainFrame.BackgroundColor3 = Color3.fromRGB(56, 56, 56)
 	MainFrame.Position = UDim2.new(0.287230164, 0, 0.311678439, 0)
 	MainFrame.Size = UDim2.new(0, 583, 0, 372)
+	MainFrame.Active = true
 	MainFrame.Draggable = true
 
 	TopBar.Name = "TopBar"
@@ -184,6 +187,25 @@ function WindowTable:CreateWindow()
 		tabPadding.PaddingBottom = UDim.new(0, 4)
 		
 		local ElementHandler = {}
+		
+		function ElementHandler:CreateSection(sectionText)
+			sectionText = sectionText or "Section"
+			local Section = Instance.new("TextLabel")
+
+			--Properties:
+
+			Section.Name = "Section"
+			Section.Parent = newPage
+			Section.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			Section.BackgroundTransparency = 1.000
+			Section.BorderSizePixel = 0
+			Section.Position = UDim2.new(0, 0, 9.71897407e-08, 0)
+			Section.Size = UDim2.new(0, 428, 0, 36)
+			Section.Font = Enum.Font.FredokaOne
+			Section.Text = sectionText
+			Section.TextColor3 = Color3.fromRGB(189, 255, 161)
+			Section.TextSize = 14.000
+		end
 		
 		function ElementHandler:CreateButton(buttonText, callback)
 			buttonText = buttonText or "Button"
