@@ -12,6 +12,17 @@ function WindowTable:CreateWindow()
 	end
 
 	local Main = Instance.new("ScreenGui")
+	
+	if syn then 
+		syn.protect_gui(Main)
+	end
+	
+	for i,v in ipairs(game.CoreGui:GetChildren()) do
+		if v.Name == Main.Name then
+			v:Destroy()
+		end
+	end
+	
 	local MainFrame = Instance.new("Frame")
 	local TopBar = Instance.new("Frame")
 	local HubName = Instance.new("TextLabel")
