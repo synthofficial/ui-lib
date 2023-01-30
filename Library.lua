@@ -191,9 +191,6 @@ function WindowTable:CreateWindow()
 		function ElementHandler:CreateSection(sectionText)
 			sectionText = sectionText or "Section"
 			local Section = Instance.new("TextLabel")
-			
-
-			local SectionDivider = Instance.new("Frame")
 
 			Section.Name = "Section"
 			Section.Parent = newPage
@@ -205,13 +202,6 @@ function WindowTable:CreateWindow()
 			Section.Text = sectionText
 			Section.TextColor3 = Color3.fromRGB(189, 255, 161)
 			Section.TextSize = 14.000
-			
-			SectionDivider.Name = "SectionDivider"
-			SectionDivider.Parent = Section
-			SectionDivider.BackgroundColor3 = Color3.fromRGB(66, 66, 66)
-			SectionDivider.BorderSizePixel = 0
-			SectionDivider.Position = UDim2.new(0, 0, 0.8359375, 0)
-			SectionDivider.Size = UDim2.new(0.99999994, 0, 0.0399999991, 0)
 			
 		end
 		
@@ -242,6 +232,75 @@ function WindowTable:CreateWindow()
 			buttonCorner.CornerRadius = UDim.new(0, 5)
 			buttonCorner.Name = "buttonCorner"
 			buttonCorner.Parent = textButton
+			
+		end
+		
+		function ElementHandler:CreateToggle(toggleText, callback)
+			toggleText = toggleText or "Toggle"
+			callback = callback or function() end
+			
+			local Toggle = Instance.new("TextButton")
+			local buttonCorner = Instance.new("UICorner")
+			local ToggleText = Instance.new("TextLabel")
+			local RadioButton = Instance.new("Frame")
+			local RadioCorner = Instance.new("UICorner")
+
+			--Properties:
+
+			Toggle.Name = "Toggle"
+			Toggle.Parent = newPage
+			Toggle.BackgroundColor3 = Color3.fromRGB(189, 255, 161)
+			Toggle.Size = UDim2.new(0, 428, 0, 27)
+			Toggle.Font = Enum.Font.FredokaOne
+			Toggle.Text = ""
+			Toggle.TextColor3 = Color3.fromRGB(56, 56, 56)
+			Toggle.TextSize = 14.000
+			Toggle.TextWrapped = true
+
+			buttonCorner.CornerRadius = UDim.new(0, 5)
+			buttonCorner.Name = "buttonCorner"
+			buttonCorner.Parent = Toggle
+
+			ToggleText.Name = "ToggleText"
+			ToggleText.Parent = Toggle
+			ToggleText.Text = toggleText
+			ToggleText.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			ToggleText.BackgroundTransparency = 1.000
+			ToggleText.Position = UDim2.new(0.023488272, 0, 0, 0)
+			ToggleText.Size = UDim2.new(0, 175, 0, 27)
+			ToggleText.Font = Enum.Font.FredokaOne
+			ToggleText.TextColor3 = Color3.fromRGB(56, 56, 56)
+			ToggleText.TextSize = 14.000
+			ToggleText.TextXAlignment = Enum.TextXAlignment.Left
+
+			RadioButton.Name = "RadioButton"
+			RadioButton.Parent = Toggle
+			RadioButton.BackgroundColor3 = Color3.fromRGB(186, 81, 83)
+			RadioButton.BorderColor3 = Color3.fromRGB(189, 255, 16)
+			RadioButton.Position = UDim2.new(0.927724838, 0, 0.222222224, 0)
+			RadioButton.Size = UDim2.new(0, 21, 0, 15)
+
+			RadioCorner.CornerRadius = UDim.new(0, 5)
+			RadioCorner.Name = "RadioCorner"
+			RadioCorner.Parent = RadioButton
+			
+			local tog = false
+			
+			Toggle.MouseButton1Click:Connect(function()
+				tog = not tog
+				callback(tog) -- Callbacks whenever we toggle
+				if tog then 
+					game.TweenService:Create(Toggle, TweenInfo.new(0.15, Enum.EasingStyle.Linear, Enum.EasingDirection.In), {
+						BackgroundColor3 = Color3.fromRGB(186, 81, 83)
+					}):Play()
+					--- We put our animation here when the toggle is on
+				else
+					game.TweenService:Create(Toggle, TweenInfo.new(0.15, Enum.EasingStyle.Linear, Enum.EasingDirection.In), {
+						BackgroundColor3 = Color3.fromRGB(56,56,56)
+					}):Play()
+					---We Put our animation here when the toggle is off
+				end
+			end)
 			
 		end
 		
