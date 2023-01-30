@@ -198,4 +198,11 @@ function WindowTable:CreateWindow()
 	return TabHandler
 end
 
+local win = WindowTable:CreateWindow()
+local tab = win:CreateTab("tEST tAB")
+
+tab:CreateButton("Print", function()
+	print("hello mate")
+end)
+
 return WindowTable
