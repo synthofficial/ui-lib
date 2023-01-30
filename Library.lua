@@ -52,6 +52,7 @@ function WindowTable:CreateWindow()
 	MainFrame.BackgroundColor3 = Color3.fromRGB(56, 56, 56)
 	MainFrame.Position = UDim2.new(0.287230164, 0, 0.311678439, 0)
 	MainFrame.Size = UDim2.new(0, 583, 0, 372)
+	MainFrame.Draggable = true
 
 	TopBar.Name = "TopBar"
 	TopBar.Parent = MainFrame
@@ -112,45 +113,7 @@ function WindowTable:CreateWindow()
 
 	pagesFolder.Name = "pagesFolder"
 	pagesFolder.Parent = allPages
-	
-	local gui = script.Parent
 
-	local dragging
-	local dragInput
-	local dragStart
-	local startPos
-
-	local function update(input)
-		local delta = input.Position - dragStart
-		gui.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
-	end
-
-	gui.InputBegan:Connect(function(input)
-		if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
-			dragging = true
-			dragStart = input.Position
-			startPos = gui.Position
-
-			input.Changed:Connect(function()
-				if input.UserInputState == Enum.UserInputState.End then
-					dragging = false
-				end
-			end)
-		end
-	end)
-
-	gui.InputChanged:Connect(function(input)
-		if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
-			dragInput = input
-		end
-	end)
-
-	UserInputService.InputChanged:Connect(function(input)
-		if input == dragInput and dragging then
-			update(input)
-		end
-	end)
-	
 	local TabHandler = {}
 	
 	function TabHandler:CreateTab(tabname)
