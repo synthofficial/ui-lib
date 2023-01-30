@@ -191,8 +191,9 @@ function WindowTable:CreateWindow()
 		function ElementHandler:CreateSection(sectionText)
 			sectionText = sectionText or "Section"
 			local Section = Instance.new("TextLabel")
+			
 
-			--Properties:
+			local SectionDivider = Instance.new("Frame")
 
 			Section.Name = "Section"
 			Section.Parent = newPage
@@ -204,6 +205,13 @@ function WindowTable:CreateWindow()
 			Section.Text = sectionText
 			Section.TextColor3 = Color3.fromRGB(189, 255, 161)
 			Section.TextSize = 14.000
+			
+			SectionDivider.Name = "SectionDivider"
+			SectionDivider.Parent = Section
+			SectionDivider.BackgroundColor3 = Color3.fromRGB(88, 88, 88)
+			SectionDivider.BorderSizePixel = 0
+			SectionDivider.Size = UDim2.new(0.99999994, 0, 0.0781266987, 0)
+			
 		end
 		
 		function ElementHandler:CreateButton(buttonText, callback)
@@ -242,5 +250,12 @@ function WindowTable:CreateWindow()
 	
 	return TabHandler
 end
+
+local win = WindowTable:CreateWindow()
+local tab = win:CreateTab("tEST tAB")
+
+tab:CreateButton("Print", function()
+	print("hello mate")
+end)
 
 return WindowTable
