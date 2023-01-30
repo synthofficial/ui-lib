@@ -6,6 +6,10 @@ function WindowTable:CreateWindow()
 	-- Version: 3.2
 
 	-- Instances:
+	
+	if game.CoreGui:FindFirstChild("Main") then
+		game.CoreGui:FindFirstChild("Main"):Destroy()
+	end
 
 	local Main = Instance.new("ScreenGui")
 	local MainFrame = Instance.new("Frame")
